@@ -1,0 +1,98 @@
+syntax = "proto3";
+
+package rpc;
+
+// import "common.proto";
+
+service LogicRPC {
+    rpc Login (LoginReq) returns (LoginRes) {}
+    rpc Ping (PingReq) returns (PingRes) {}
+    rpc SendP2PMsg (SendP2PMsgReq) returns (SendP2PMsgRes) {}
+    // client sync msg use current id
+    rpc SyncMsg (SyncMsgReq) returns (SyncMsgRes) {}
+    rpc AcceptP2PMsgAck (AcceptP2PMsgAckReq) returns (AcceptP2PMsgAckRes) {}
+    rpc SendGroupMsg (SendGroupMsgReq) returns (SendGroupMsgRes) {}
+}
+
+message LoginReq {
+    int64  UID        = 1;
+    string token      = 2;
+    string accessAddr = 3;
+}
+
+message LoginRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message PingReq {
+    int64  UID    = 1;
+}
+
+message PingRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message SendP2PMsgReq {
+    int64  sourceUID = 1;
+    int64  targetUID = 2;
+    string msgID     = 3;
+    string msgType   = 4;
+    string msg       = 5;
+}
+
+message SendP2PMsgRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+// sync msg
+message SyncMsgReq {
+    int64  UID        = 1;
+    int64  currentID  = 2;
+    int64  totalID    = 3;
+}
+
+message SyncMsgRes {
+    uint32 errCode   = 1;
+    string errStr    = 2;
+    int64  currentID = 3;
+    message offsetMsg {
+        int64  sourceUID   = 1;
+        int64  targetUID   = 2;
+        int64  groupID     = 3;
+        string msgType     = 4;
+        string msgID       = 5;
+        string msg         = 6;
+    }
+    repeated offsetMsg Msgs = 4;
+}
+
+// p2p msg accept ack
+message AcceptP2PMsgAckReq {
+    int64  sourceUID = 1;
+    int64  targetUID = 2;
+    string msgID     = 3;
+}
+
+message AcceptP2PMsgAckRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+// group msg
+message SendGroupMsgReq {
+    int64  sourceUID = 1;
+    int64  groupID   = 2;
+    string msgType   = 3;
+    string msgID     = 4;
+    string msg       = 5;
+}
+
+message SendGroupMsgRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+

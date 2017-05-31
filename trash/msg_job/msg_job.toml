@@ -1,0 +1,29 @@
+
+ver = "1.0.0"
+logPath = "/tmp/msg-job.log"
+
+[rpcClient]
+    [rpcClient.accessClient]
+    serviceName = "access"
+    etcdAddr = "localhost:2379"
+    balancer = "rr"
+
+[kafkaConsumer]
+group = "msg-job"
+topics = ["logic_producer_p2p"]
+offset = false
+    [kafkaConsumer.zookeeper]
+    root = "/brokers"
+    addrs = ["127.0.0.1:2181"]
+    timeout = "5s"
+
+[mongoDB]
+addrs = "127.0.0.1:27017"
+db = "im"
+dialTimeout = "1s"
+offlineMsgCollection = "offline_msg"
+
+[etcd]
+root = "/server/access_server_msgjob/"
+addrs = ["127.0.0.1:2379"]
+timeout = "1s"

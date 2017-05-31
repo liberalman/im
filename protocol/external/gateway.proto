@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package external;
+
+message ReqAccessServer {
+    uint32 cmd    = 1;
+    string cmdStr = 2;
+}
+
+message ResSelectAccessServerForClient {
+    uint32 cmd     = 1;
+    string cmdStr  = 2;
+    uint32 errCode = 3;
+    string errStr  = 4;
+    string addr    = 5;
+}
+

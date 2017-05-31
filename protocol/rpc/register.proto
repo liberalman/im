@@ -1,0 +1,122 @@
+syntax = "proto3";
+
+package rpc;
+
+service RegisterServerRPC {
+    rpc Register (RGRegisterReq) returns (RGRegisterRes) {}
+    rpc Login (RGLoginReq) returns (RGLoginRes) {}
+    rpc RouterAccess (RGAccessReq) returns (RGAccessRes) {}
+    rpc Auth (RGAuthReq) returns (RGAuthRes) {}
+    rpc Ping (RGPingReq) returns (RGPingRes) {}
+    rpc Online (RGOnlineReq) returns (RGOnlineRes) {}
+    rpc GetUsersByGroupID(RGGetUsersByGroupIDReq) returns (RGGetUsersByGroupIDRes) {}
+    // group
+    rpc CreateGroup (RGCreateGroupReq) returns (RGCreateGroupRes) {}
+    rpc JoinGroup (RGJoinGroupReq) returns (RGJoinGroupRes) {}
+    rpc QuitGroup (RGQuitGroupReq) returns (RGQuitGroupRes) {}
+}
+
+message RGRegisterReq {
+    int64  UID       = 1;
+    string name      = 2;
+    string password  = 3;
+}
+
+message RGRegisterRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message RGLoginReq {
+    int64  UID        = 1;
+    string token      = 2;
+    string accessAddr = 3;
+}
+
+message RGLoginRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+    string token   = 3;
+}
+
+message RGAccessReq {
+    int64  UID      = 1;
+}
+
+message RGAccessRes {
+    uint32 errCode    = 1;
+    string errStr     = 2;
+    string accessAddr = 3;
+}
+
+message RGAuthReq {
+    int64  UID    = 1;
+    // string token  = 2;
+}
+
+message RGAuthRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+    string token   = 3;
+}
+
+message RGPingReq {
+    int64  UID    = 1;
+}
+
+message RGPingRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message RGOnlineReq {
+    int64  UID    = 1;
+}
+
+message RGOnlineRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+    bool   online  = 3;
+}
+
+message RGGetUsersByGroupIDReq {
+    int64  gid    = 1;
+}
+
+message RGGetUsersByGroupIDRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+    repeated int64 uids  = 3;
+}
+
+// group
+message RGCreateGroupReq {
+    int64  gid       = 1;
+    int64  uid       = 2;
+    string groupName = 3;
+}
+
+message RGCreateGroupRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message RGJoinGroupReq {
+    int64  uid   = 1;
+    int64  gid   = 2;
+}
+
+message RGJoinGroupRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}
+
+message RGQuitGroupReq {
+    int64  uid   = 1;
+    int64  gid   = 2;
+}
+
+message RGQuitGroupRes {
+    uint32 errCode = 1;
+    string errStr  = 2;
+}

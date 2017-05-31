@@ -1,0 +1,40 @@
+# This is a TOML document.
+
+version = "1.0.0"
+user = "nobody"
+pid = "/tmp/group-api.pid"
+dir = "./"
+perf = "0.0.0.0:6000"
+checkFile = "/data/www/group-api.html"
+log = "/tmp/log/group-api/"
+trace = true
+debug = false
+
+[multiHTTP]
+    [multiHTTP.outer]
+    addrs = ["0.0.0.0:7001"]
+    maxListen = 10
+    [multiHTTP.inner]
+    addrs = ["0.0.0.0:7002"]
+    maxListen = 10
+    [multiHTTP.local]
+    addrs = ["0.0.0.0:7003"]
+    maxListen = 10
+
+[rpcClient]
+    [rpcClient.registerClient]
+    serviceName = "register"
+    etcdAddr = "localhost:2379"
+    balancer = "rr"
+
+[redis]
+name = "group-api"
+proto = "tcp"
+addr = "172.16.0.148:6379"
+idle = 100
+active = 100
+dialTimeout = "1s"
+readTimeout = "1s"
+writeTimeout = "1s"
+idleTimeout = "10s"
+expire = "10s"

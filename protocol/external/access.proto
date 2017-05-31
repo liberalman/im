@@ -1,0 +1,161 @@
+syntax = "proto3";
+
+package external;
+
+// import "common.proto";
+
+// login
+message ReqLogin {
+    uint32 cmd    = 1;
+    string cmdStr = 2;
+    int64  UID    = 3;
+    string token  = 4;
+}
+
+message ResLogin {
+    uint32 cmd     = 1;
+    string cmdStr  = 2;
+    uint32 errCode = 3;
+    string errStr  = 4;
+}
+
+// logout
+message ReqLogout {
+    uint32 cmd    = 1;
+    string cmdStr = 2;
+    int64  UID    = 3;
+}
+
+message ResLogout {
+    uint32 cmd     = 1;
+    string cmdStr  = 2;
+    uint32 errCode = 3;
+    string errStr  = 4;
+}
+
+// ping
+message ReqPing {
+    uint32 cmd    = 1;
+    string cmdStr = 2;
+    int64  UID    = 3;
+}
+
+// p2p msg
+message ReqSendP2PMsg {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    int64  sourceUID = 3;
+    int64  targetUID = 4;
+    string msgID     = 5;
+    string msg       = 6;
+}
+
+message ResSendP2PMsg {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    uint32 errCode   = 3;
+    string errStr    = 4;
+    int64  sourceUID = 5;
+    int64  targetUID = 6;
+    string msgID     = 7;
+    string msg       = 8;
+}
+
+// notify 
+message ResNotify {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    uint32 errCode   = 3;
+    string errStr    = 4;
+    int64  currentID = 5;
+}
+
+// sync msg
+message ReqSyncMsg {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    int64  UID       = 3;
+    int64  currentID = 4;
+}
+
+message offsetMsg {
+    int64  sourceUID        = 1;
+    int64  targetUID        = 2;
+    int64  groupID          = 3;
+    string msgType          = 4;
+    string msgID            = 5;
+    string msg              = 6;
+}
+
+message ResSyncMsg {
+    uint32 cmd                    = 1;
+    string cmdStr                 = 2;
+    uint32 errCode                = 3;
+    string errStr                 = 4;
+    int64  currentID              = 5;
+    repeated offsetMsg Msgs       = 6;
+}
+
+// // p2p msg read ack
+// message ReqReadP2PMsgAck {
+//     uint32 cmd       = 1;
+//     string cmdStr    = 2;
+//     int64  sourceUID = 3;
+//     int64  targetUID = 4;
+// }
+
+// message ResReadP2PMsgAck {
+//     uint32 cmd     = 1;
+//     string cmdStr  = 2;
+//     uint32 errCode = 3;
+//     string errStr  = 4;
+// }
+
+// // p2p msg delivery ack
+// message ReqDeliveryP2PMsgAck {
+//     uint32 cmd       = 1;
+//     string cmdStr    = 2;
+//     int64  sourceUID = 3;
+//     int64  targetUID = 4;
+// }
+
+// message ResDeliveryP2PMsgAck {
+//     uint32 cmd     = 1;
+//     string cmdStr  = 2;
+//     uint32 errCode = 3;
+//     string errStr  = 4;
+// }
+
+// p2p msg accept ack
+message ReqAcceptP2PMsgAck {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    int64  sourceUID = 3;
+    int64  targetUID = 4;
+    string msgID     = 5;
+}
+
+message ResAcceptP2PMsgAck {
+    uint32 cmd     = 1;
+    string cmdStr  = 2;
+    uint32 errCode = 3;
+    string errStr  = 4;
+}
+
+// group
+message ReqSendGroupMsg {
+    uint32 cmd       = 1;
+    string cmdStr    = 2;
+    int64  sourceUID = 3;
+    int64  groupID   = 4;
+    string msgID     = 5;
+    string msg       = 6;
+}
+
+message ResSendGroupMsg {
+    uint32 cmd     = 1;
+    string cmdStr  = 2;
+    uint32 errCode = 3;
+    string errStr  = 4;
+}
+

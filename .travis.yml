@@ -1,0 +1,25 @@
+language: go
+sudo: required
+install: true
+go:
+  - 1.7.5
+
+env:
+  global:
+    - GOARCH=amd64
+    - GO_FOR_RELEASE=1.7.5
+
+install:
+  - go get -u -d github.com/golang/glog
+  - go get -u -d github.com/coreos/etcd
+  - go get -u -d github.com/Shopify/sarama
+  - go get -u -d github.com/wvanbergen/kafka/consumergroup
+  - go get -u -d github.com/tsuna/gohbase
+  - go get -u -d github.com/garyburd/redigo/redis
+  - go get -u -d github.com/BurntSushi/toml
+  - go get -u -d gopkg.in/olivere/elastic.v5
+  - go get -u -d gopkg.in/mgo.v2
+  - go get -u -d github.com/go-sql-driver/mysql
+  - go get -u -d github.com/satori/go.uuid
+
+exclude: [trash]

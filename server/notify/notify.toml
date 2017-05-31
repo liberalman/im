@@ -1,0 +1,47 @@
+# notify conf
+
+ver = "1.0.0"
+logPath = "/tmp/notify.log"
+
+[rpcServer]
+proto = "tcp"
+addr = "0.0.0.0:25000"
+
+[serviceDiscoveryServer]
+serviceName = "notify"
+rpcAddr = "127.0.0.1:25000"
+etcdAddr = "localhost:2379"
+interval = "5s"
+ttl = "10s"
+
+[rpcClient]
+    [rpcClient.accessClient]
+    serviceName = "access"
+    etcdAddr = "localhost:2379"
+    balancer = "rr"
+
+[redis]
+name = "notify"
+proto = "tcp"
+addr = "127.0.0.1:6379"
+idle = 100
+active = 100
+dialTimeout = "1s"
+readTimeout = "1s"
+writeTimeout = "1s"
+idleTimeout = "10s"
+expire = "15s"
+
+[etcd]
+root = "/server/access_server_notify/"
+addrs = ["127.0.0.1:2379"]
+timeout = "1s"
+
+[mysql]
+    [mysql.im]
+    name = "[im]tcp@127.0.0.1:3306"
+    dsn = "root:1@tcp(127.0.0.1:3306)/im?timeout=5s&readTimeout=5s&writeTimeout=5s&parseTime=true&loc=Local&charset=utf8,utf8mb4"
+    active = 5 
+    idle = 2 
+
+
