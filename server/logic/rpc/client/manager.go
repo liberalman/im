@@ -2,9 +2,9 @@ package client
 
 import (
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/server/logic/conf"
-	sd "github.com/oikomi/FishChatServer2/service_discovery/etcd"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/server/logic/conf"
+	sd "github.com/liberalman/im/service_discovery/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
