@@ -1,0 +1,49 @@
+#! /bin/bash
+
+CWD=/media/sf_G_DRIVE/gocode/src/github.com/liberalman/im
+SERVER=("gateway" "access")
+
+# Source function library.
+. /etc/init.d/functions
+
+# See how we were called.
+case "$1" in
+  start)
+	[ "$EUID" != "0" ] && exit 4
+    
+    for svr in ${SERVER[*]}
+    do
+        echo $svr
+        if [ -x $CWD/server/$svr/$svr ]; then
+            pushd $CWD/server/$svr/
+            cd $CWD/server/$svr/
+            nohup ./$svr &
+            popd
+        else
+            echo "no "$CWD/server/$svr/$svr
+        fi
+    done
+    apply_sysctl
+        ;;
+  stop)
+	[ "$EUID" != "0" ] && exit 4
+  	ps -ef|grep ./access|grep -v grep| awk '{print $2}'|xargs kill -9
+    ps -ef|grep ./gateway|grep -v grep| awk '{print $2}'|xargs kill -9
+    ;;
+  status)
+	echo "活跃进程:"
+    echo $(ps -ef|grep ./access|grep -v grep| awk '{print $8}')
+    echo $(ps -ef|grep ./gateway|grep -v grep| awk '{print $8}')
+	;;
+  restart|reload|force-reload)
+        cd "$CWD"
+	$0 stop
+	$0 start
+	rc=$?
+	;;
+  *)
+        echo $"Usage: $0 {start|stop|status|restart|reload|force-reload}"
+        exit 2
+esac
+
+exit $rc
