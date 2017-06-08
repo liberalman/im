@@ -3,7 +3,7 @@ package conf
 import (
 	"flag"
 	"github.com/BurntSushi/toml"
-	commconf "github.com/libebralman/im/common/conf"
+	commconf "github.com/liberalman/im/common/conf"
 )
 
 var (
