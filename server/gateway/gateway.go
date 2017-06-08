@@ -23,8 +23,9 @@ func main() {
 		glog.Error("conf.Init() error: ", err)
 		panic(err)
 	}
-	gwServer := server.New()                                                                                         // gateway的server对象，然后下面的libnetServe负责创建server，监听端口
-	protobuf := codec.Protobuf()                                                                                     // protobuf协议解析
+	gwServer := server.New()     // gateway的server对象，然后下面的libnetServe负责创建server，监听端口
+	protobuf := codec.Protobuf() // protobuf协议解析
+
 	if gwServer.Server, err = libnet.Serve(conf.Conf.Server.Proto, conf.Conf.Server.Addr, protobuf, 0); err != nil { //创建server，监听端口
 		glog.Error(err)
 		panic(err)
