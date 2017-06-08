@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"github.com/coreos/etcd/clientv3"
 	"github.com/golang/glog"
-	commconf "github.com/oikomi/FishChatServer2/common/conf"
+	commconf "github.com/liberalman/im/common/conf"
 	"time"
 )
 
