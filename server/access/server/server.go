@@ -62,18 +62,23 @@ func (s *Server) Loop(rpcClient *rpc.RPCClient) {
 }
 
 func (s *Server) SDHeart() {
-	glog.Info("SDHeart")
 	work1 := etcd.NewWorker(conf.Conf.ConfDiscovery.Gateway.Name, conf.Conf.Server.Addr, conf.Conf.ConfDiscovery.Gateway.Root,
 		conf.Conf.ConfDiscovery.Gateway.Addrs)
 	go work1.HeartBeat()
+	glog.Info("start HeartBeat function ", conf.Conf.ConfDiscovery.Gateway)
+
 	work2 := etcd.NewWorker(conf.Conf.ConfDiscovery.MsgJob.Name, conf.Conf.RPCServer.Addr, conf.Conf.ConfDiscovery.MsgJob.Root,
 		conf.Conf.ConfDiscovery.MsgJob.Addrs)
 	go work2.HeartBeat()
-	glog.Info(conf.Conf.ConfDiscovery.Notify)
+	glog.Info("start HeartBeat function ", conf.Conf.ConfDiscovery.MsgJob)
+
 	work3 := etcd.NewWorker(conf.Conf.ConfDiscovery.Notify.Name, conf.Conf.RPCServer.Addr, conf.Conf.ConfDiscovery.Notify.Root,
 		conf.Conf.ConfDiscovery.Notify.Addrs)
 	go work3.HeartBeat()
+	glog.Info("start HeartBeat function ", conf.Conf.ConfDiscovery.Notify)
+
 	work4 := etcd.NewWorker(conf.Conf.ConfDiscovery.Logic.Name, conf.Conf.RPCServer.Addr, conf.Conf.ConfDiscovery.Logic.Root,
 		conf.Conf.ConfDiscovery.Logic.Addrs)
 	go work4.HeartBeat()
+	glog.Info("start HeartBeat function ", conf.Conf.ConfDiscovery.Logic)
 }
