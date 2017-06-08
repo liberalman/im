@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/oikomi/FishChatServer2/common/xtime"
+	"github.com/liberalman/im/common/xtime"
 )
 
 type ExceptionMsg struct {
