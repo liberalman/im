@@ -3,11 +3,11 @@ package client
 import (
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
-	"github.com/oikomi/FishChatServer2/common/ecode"
-	"github.com/oikomi/FishChatServer2/protocol/external"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/server/access/conf"
-	"github.com/oikomi/FishChatServer2/server/access/global"
+	"github.com/liberalman/im/common/ecode"
+	"github.com/liberalman/im/protocol/external"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/server/access/conf"
+	"github.com/liberalman/im/server/access/global"
 )
 
 func (c *Client) procReqLogin(reqData []byte) (err error) {
