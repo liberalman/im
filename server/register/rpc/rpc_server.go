@@ -5,15 +5,16 @@ import (
 	"database/sql"
 	"encoding/hex"
 	"fmt"
+	"net"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/ecode"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/server/register/conf"
-	"github.com/oikomi/FishChatServer2/server/register/dao"
-	sd "github.com/oikomi/FishChatServer2/service_discovery/etcd"
+	"github.com/liberalman/im/common/ecode"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/server/register/conf"
+	"github.com/liberalman/im/server/register/dao"
+	sd "github.com/liberalman/im/service_discovery/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"net"
 )
 
 type RPCServer struct {

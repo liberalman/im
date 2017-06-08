@@ -2,12 +2,13 @@ package client
 
 import (
 	"errors"
+	"time"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/server/notify/conf_discovery"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/server/notify/conf_discovery"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"time"
 )
 
 type AccessServerRPCCli struct {

@@ -1,12 +1,13 @@
 package dao
 
 import (
-	"github.com/garyburd/redigo/redis"
-	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/server/register/conf"
-	"golang.org/x/net/context"
 	"strconv"
 	"time"
+
+	"github.com/garyburd/redigo/redis"
+	"github.com/golang/glog"
+	"github.com/liberalman/im/server/register/conf"
+	"golang.org/x/net/context"
 )
 
 const (

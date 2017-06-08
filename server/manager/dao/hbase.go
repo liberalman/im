@@ -2,8 +2,8 @@ package dao
 
 import (
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/dao/xhbase"
-	"github.com/oikomi/FishChatServer2/server/manager/conf"
+	"github.com/liberalman/im/common/dao/xhbase"
+	"github.com/liberalman/im/server/manager/conf"
 	"github.com/tsuna/gohbase/hrpc"
 	"golang.org/x/net/context"
 )

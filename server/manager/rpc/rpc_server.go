@@ -5,17 +5,18 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
+	"net"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/ecode"
-	commmodel "github.com/oikomi/FishChatServer2/common/model"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/server/manager/conf"
-	"github.com/oikomi/FishChatServer2/server/manager/dao"
-	"github.com/oikomi/FishChatServer2/server/manager/model"
-	sd "github.com/oikomi/FishChatServer2/service_discovery/etcd"
+	"github.com/liberalman/im/common/ecode"
+	commmodel "github.com/liberalman/im/common/model"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/server/manager/conf"
+	"github.com/liberalman/im/server/manager/dao"
+	"github.com/liberalman/im/server/manager/model"
+	sd "github.com/liberalman/im/service_discovery/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"net"
 )
 
 type RPCServer struct {

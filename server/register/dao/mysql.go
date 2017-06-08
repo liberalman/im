@@ -2,10 +2,11 @@ package dao
 
 import (
 	"database/sql"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/dao/xmysql"
-	"github.com/oikomi/FishChatServer2/server/register/conf"
-	"github.com/oikomi/FishChatServer2/server/register/model"
+	"github.com/liberalman/im/common/dao/xmysql"
+	"github.com/liberalman/im/server/register/conf"
+	"github.com/liberalman/im/server/register/model"
 	"golang.org/x/net/context"
 )
 

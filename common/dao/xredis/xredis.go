@@ -2,11 +2,12 @@ package xredis
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/garyburd/redigo/redis"
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/conf"
+	"github.com/liberalman/im/common/conf"
 	"golang.org/x/net/context"
-	"time"
 )
 
 const (

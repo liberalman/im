@@ -3,11 +3,12 @@ package xmysql
 import (
 	"database/sql"
 	"errors"
+	"time"
+
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/conf"
+	"github.com/liberalman/im/common/conf"
 	"golang.org/x/net/context"
-	"time"
 )
 
 var (

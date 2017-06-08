@@ -2,10 +2,11 @@ package main
 
 import (
 	"flag"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/server/notify/conf"
-	"github.com/oikomi/FishChatServer2/server/notify/conf_discovery"
-	"github.com/oikomi/FishChatServer2/server/notify/rpc"
+	"github.com/liberalman/im/server/notify/conf"
+	"github.com/liberalman/im/server/notify/conf_discovery"
+	"github.com/liberalman/im/server/notify/rpc"
 )
 
 func init() {

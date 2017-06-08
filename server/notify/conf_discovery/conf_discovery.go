@@ -1,10 +1,11 @@
 package conf_discovery
 
 import (
-	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/conf_discovery/etcd"
-	"github.com/oikomi/FishChatServer2/server/notify/conf"
 	"time"
+
+	"github.com/golang/glog"
+	"github.com/liberalman/im/conf_discovery/etcd"
+	"github.com/liberalman/im/server/notify/conf"
 )
 
 var (
