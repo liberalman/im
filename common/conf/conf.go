@@ -1,7 +1,7 @@
 package conf
 
 import (
-	"github.com/oikomi/FishChatServer2/common/xtime"
+	"github.com/liberalman/im/common/xtime"
 )
 
 type CommConf struct {
