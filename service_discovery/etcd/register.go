@@ -4,7 +4,7 @@ import (
 	"fmt"
 	etcd "github.com/coreos/etcd/clientv3"
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/xtime"
+	"github.com/liberalman/im/common/xtime"
 	"golang.org/x/net/context"
 	"strings"
 	"time"
