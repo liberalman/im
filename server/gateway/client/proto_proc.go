@@ -2,9 +2,9 @@ package client
 
 import (
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/ecode"
-	"github.com/oikomi/FishChatServer2/protocol/external"
-	"github.com/oikomi/FishChatServer2/server/gateway/job"
+	"github.com/libebralman/im/common/ecode"
+	"github.com/libebralman/im/protocol/external"
+	"github.com/libebralman/im/server/gateway/job"
 	"math/rand"
 )
 
