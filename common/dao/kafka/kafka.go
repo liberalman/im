@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"github.com/Shopify/sarama"
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/common/conf"
+	"github.com/liberalman/im/common/conf"
 	"github.com/wvanbergen/kafka/consumergroup"
 	"time"
 )
