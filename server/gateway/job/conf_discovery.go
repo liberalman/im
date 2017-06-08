@@ -2,8 +2,8 @@ package job
 
 import (
 	"github.com/golang/glog"
-	"github.com/libebralman/im/conf_discovery/etcd"
-	"github.com/libebralman/im/server/gateway/conf"
+	"github.com/liberalman/im/conf_discovery/etcd"
+	"github.com/liberalman/im/server/gateway/conf"
 	"time"
 )
 
