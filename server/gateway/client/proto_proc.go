@@ -2,9 +2,9 @@ package client
 
 import (
 	"github.com/golang/glog"
-	"github.com/libebralman/im/common/ecode"
-	"github.com/libebralman/im/protocol/external"
-	"github.com/libebralman/im/server/gateway/job"
+	"github.com/liberalman/im/common/ecode"
+	"github.com/liberalman/im/protocol/external"
+	"github.com/liberalman/im/server/gateway/job"
 	"math/rand"
 )
 
