@@ -5,17 +5,21 @@ logPath = "/tmp/idgen.log"
 
 [rpcServer]
 proto = "tcp"
-addr = "0.0.0.0:31000"
+#addr = "0.0.0.0:31000"
+addr = "192.168.1.5:31000"
 
 [serviceDiscoveryServer]
 serviceName = "idgen"
-rpcAddr = "127.0.0.1:31000"
-etcdAddr = "localhost:2379"
+#rpcAddr = "127.0.0.1:31000"
+#etcdAddr = "localhost:2379"
+rpcAddr = "192.168.1.5:31000"
+etcdAddr = "192.168.1.5:2379"
 interval = "2s"
 ttl = "10s"
 
 [etcd]
 root = "/service/idgen/"
-addrs = ["127.0.0.1:2379"]
+#addrs = ["127.0.0.1:2379"]
+addrs = ["192.168.1.5:2379"]
 timeout = "1s"
 

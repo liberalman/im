@@ -2,7 +2,7 @@ package dao
 
 import (
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/service/idgen/conf"
+	"github.com/liberalman/im/service/idgen/conf"
 )
 
 type Dao struct {

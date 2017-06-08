@@ -2,9 +2,10 @@ package main
 
 import (
 	"flag"
+
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/service/idgen/conf"
-	"github.com/oikomi/FishChatServer2/service/idgen/rpc"
+	"github.com/liberalman/im/service/idgen/conf"
+	"github.com/liberalman/im/service/idgen/rpc"
 )
 
 func init() {

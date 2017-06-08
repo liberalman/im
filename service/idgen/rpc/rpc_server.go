@@ -3,18 +3,19 @@ package rpc
 import (
 	"errors"
 	"fmt"
-	"github.com/coreos/etcd/clientv3"
-	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/protocol/rpc"
-	"github.com/oikomi/FishChatServer2/service/idgen/conf"
-	"github.com/oikomi/FishChatServer2/service/idgen/dao"
-	sd "github.com/oikomi/FishChatServer2/service_discovery/etcd"
-	"golang.org/x/net/context"
-	"google.golang.org/grpc"
 	"math/rand"
 	"net"
 	"strconv"
 	"time"
+
+	"github.com/coreos/etcd/clientv3"
+	"github.com/golang/glog"
+	"github.com/liberalman/im/protocol/rpc"
+	"github.com/liberalman/im/service/idgen/conf"
+	"github.com/liberalman/im/service/idgen/dao"
+	sd "github.com/liberalman/im/service_discovery/etcd"
+	"golang.org/x/net/context"
+	"google.golang.org/grpc"
 )
 
 type RPCServer struct {

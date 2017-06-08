@@ -1,10 +1,11 @@
 package dao
 
 import (
+	"time"
+
 	"github.com/coreos/etcd/clientv3"
 	"github.com/golang/glog"
-	commconf "github.com/oikomi/FishChatServer2/common/conf"
-	"time"
+	commconf "github.com/liberalman/im/common/conf"
 )
 
 type Etcd struct {

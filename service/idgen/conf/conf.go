@@ -2,8 +2,9 @@ package conf
 
 import (
 	"flag"
+
 	"github.com/BurntSushi/toml"
-	commconf "github.com/oikomi/FishChatServer2/common/conf"
+	commconf "github.com/liberalman/im/common/conf"
 )
 
 var (
