@@ -2,8 +2,8 @@ package job
 
 import (
 	"github.com/golang/glog"
-	"github.com/oikomi/FishChatServer2/conf_discovery/etcd"
-	"github.com/oikomi/FishChatServer2/server/gateway/conf"
+	"github.com/libebralman/im/conf_discovery/etcd"
+	"github.com/libebralman/im/server/gateway/conf"
 	"time"
 )
 
