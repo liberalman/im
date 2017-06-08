@@ -1,6 +1,8 @@
 package rpc
 
 import (
+	"net"
+
 	"github.com/golang/glog"
 	"github.com/liberalman/im/common/ecode"
 	"github.com/liberalman/im/protocol/external"
@@ -10,7 +12,6 @@ import (
 	sd "github.com/liberalman/im/service_discovery/etcd"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
-	"net"
 )
 
 type RPCServer struct {
@@ -87,11 +88,13 @@ func RPCServerInit() {
 		glog.Error(err)
 		panic(err)
 	}
+	glog.Info("start register to etcd server: ", conf.Conf.ServiceDiscoveryServer.EtcdAddr)
 	err = sd.Register(conf.Conf.ServiceDiscoveryServer.ServiceName, conf.Conf.ServiceDiscoveryServer.RPCAddr, conf.Conf.ServiceDiscoveryServer.EtcdAddr, conf.Conf.ServiceDiscoveryServer.Interval, conf.Conf.ServiceDiscoveryServer.TTL)
 	if err != nil {
 		glog.Error(err)
 		panic(err)
 	}
+	glog.Info("register success to etcd server: ", conf.Conf.ServiceDiscoveryServer.EtcdAddr)
 	s := grpc.NewServer()
 	rpc.RegisterAccessServerRPCServer(s, &RPCServer{})
 	s.Serve(lis)
