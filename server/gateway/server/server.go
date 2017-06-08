@@ -1,6 +1,8 @@
 package server
 
 import (
+	"fmt"
+
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
 	"github.com/liberalman/im/common/ecode"
@@ -39,6 +41,7 @@ func (s *Server) sessionLoop(client *client.Client) {
 				}
 				continue
 			}
+			fmt.Println("baseCMD: ", baseCMD)
 			if err = client.Parse(baseCMD.Cmd, reqData); err != nil { // 解析
 				glog.Error(err)
 				continue
