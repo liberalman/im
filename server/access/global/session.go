@@ -1,7 +1,7 @@
 package global
 
 import (
-	"github.com/oikomi/FishChatServer2/libnet"
+	"github.com/liberalman/im/libnet"
 )
 
 type SessionMap map[int64]*libnet.Session
