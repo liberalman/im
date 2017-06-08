@@ -5,7 +5,8 @@ logPath = "/tmp/gateway.log"
 
 [server]
 proto = "tcp"
-addr = "0.0.0.0:10000"
+#addr = "0.0.0.0:10000"
+addr = "100.99.81.72:10000"
 
 [confDiscovery]
 role = "master"
@@ -14,6 +15,6 @@ interval = "10s"
 [etcd]
 root = "/server/access_server_gateway/"
 #addrs = ["127.0.0.1:2379"]
-addrs = ["192.168.1.5:2379"]
+addrs = ["100.99.81.72:2379"]
 timeout = "1s"
 
