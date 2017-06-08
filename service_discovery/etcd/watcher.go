@@ -4,7 +4,7 @@ import (
 	"fmt"
 	etcd "github.com/coreos/etcd/clientv3"
 	"github.com/golang/glog"
-	. "github.com/oikomi/FishChatServer2/service_discovery/lib"
+	. "github.com/liberalman/im/service_discovery/lib"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/naming"
 )
