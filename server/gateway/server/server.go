@@ -3,11 +3,11 @@ package server
 import (
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
-	"github.com/libebralman/im/common/ecode"
-	"github.com/libebralman/im/conf_discovery/etcd"
-	"github.com/libebralman/im/libnet"
-	"github.com/libebralman/im/protocol/external"
-	"github.com/libebralman/im/server/gateway/client"
+	"github.com/liberalman/im/common/ecode"
+	"github.com/liberalman/im/conf_discovery/etcd"
+	"github.com/liberalman/im/libnet"
+	"github.com/liberalman/im/protocol/external"
+	"github.com/liberalman/im/server/gateway/client"
 )
 
 type Server struct {
