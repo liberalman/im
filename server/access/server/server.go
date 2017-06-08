@@ -3,13 +3,13 @@ package server
 import (
 	"github.com/golang/glog"
 	"github.com/golang/protobuf/proto"
-	"github.com/oikomi/FishChatServer2/common/ecode"
-	"github.com/oikomi/FishChatServer2/conf_discovery/etcd"
-	"github.com/oikomi/FishChatServer2/libnet"
-	"github.com/oikomi/FishChatServer2/protocol/external"
-	"github.com/oikomi/FishChatServer2/server/access/client"
-	"github.com/oikomi/FishChatServer2/server/access/conf"
-	"github.com/oikomi/FishChatServer2/server/access/rpc"
+	"github.com/liberalman/im/common/ecode"
+	"github.com/liberalman/im/conf_discovery/etcd"
+	"github.com/liberalman/im/libnet"
+	"github.com/liberalman/im/protocol/external"
+	"github.com/liberalman/im/server/access/client"
+	"github.com/liberalman/im/server/access/conf"
+	"github.com/liberalman/im/server/access/rpc"
 )
 
 type Server struct {
