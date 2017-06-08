@@ -17,7 +17,7 @@ case "$1" in
         if [ -x $CWD/server/$svr/$svr ]; then
             pushd $CWD/server/$svr/
             cd $CWD/server/$svr/
-            nohup ./$svr &
+            ./$svr &
             popd
         else
             echo "no "$CWD/server/$svr/$svr
