@@ -2,8 +2,8 @@ package client
 
 import (
 	"github.com/golang/glog"
-	"github.com/libebralman/im/libnet"
-	"github.com/libebralman/im/protocol/external"
+	"github.com/liberalman/im/libnet"
+	"github.com/liberalman/im/protocol/external"
 )
 
 type Client struct {
