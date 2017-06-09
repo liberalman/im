@@ -19,10 +19,9 @@ case "$1" in
     do
         echo $svr
         if [ -x $CWD/server/$svr/$svr ]; then
-            pushd $CWD/server/$svr/
-            cd $CWD/server/$svr/
+            pushd $CWD/server/$svr/ >/dev/null 2>&1
             ./$svr &
-            popd
+            popd >/dev/null 2>&1
         else
             echo "no "$CWD/server/$svr/$svr
         fi
@@ -32,10 +31,9 @@ case "$1" in
     do
         echo $svr
         if [ -x $CWD/service/$svr/$svr ]; then
-            pushd $CWD/service/$svr/
-            cd $CWD/service/$svr/
+            pushd $CWD/service/$svr/ >/dev/null 2>&1
             ./$svr &
-            popd
+            popd >/dev/null 2>&1
         else
             echo "no "$CWD/service/$svr/$svr
         fi
