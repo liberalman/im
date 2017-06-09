@@ -1,0 +1,79 @@
+#!/bin/bash
+
+CWD=/media/sf_G_DRIVE/gocode/src/github.com/liberalman/im
+SERVER=("gateway" "access" "notify" "register" "manager")
+SERVICE=("idgen")
+
+# Source function library.
+# in centos
+#. /etc/init.d/functions
+# in ubuntu
+. /lib/lsb/init-functions
+
+# See how we were called.
+case "$1" in
+  start)
+	[ "$EUID" != "0" ] && exit 4
+    
+    for svr in ${SERVER[*]}
+    do
+        echo $svr
+        if [ -x $CWD/server/$svr/$svr ]; then
+            pushd $CWD/server/$svr/ >/dev/null 2>&1
+            nohup ./$svr &
+            popd >/dev/null 2>&1
+        else
+            echo "no "$CWD/server/$svr/$svr
+        fi
+    done
+    
+    for svr in ${SERVICE[*]}
+    do
+        echo $svr
+        if [ -x $CWD/service/$svr/$svr ]; then
+            pushd $CWD/service/$svr/ >/dev/null 2>&1
+            nohup ./$svr &
+            popd >/dev/null 2>&1
+        else
+            echo "no "$CWD/service/$svr/$svr
+        fi
+    done
+    
+    # in centos
+    #apply_sysctl
+        ;;
+  stop)
+	[ "$EUID" != "0" ] && exit 4
+    
+    for svr in ${SERVER[*]}
+    do
+        ps -ef|grep "./$svr"|grep -v grep| awk '{print $2}'|xargs kill -9
+    done
+    for svr in ${SERVICE[*]}
+    do
+        ps -ef|grep "./$svr"|grep -v grep| awk '{print $2}'|xargs kill -9
+    done
+    ;;
+  status)
+	echo "活跃进程:"
+    for svr in ${SERVER[*]}
+    do
+        echo $(ps -ef|grep "./$svr"|grep -v grep| awk '{print $8}')
+    done
+    for svr in ${SERVICE[*]}
+    do
+        echo $(ps -ef|grep "./$svr"|grep -v grep| awk '{print $8}')
+    done
+	;;
+  restart|reload|force-reload)
+        cd "$CWD"
+	$0 stop
+	$0 start
+	rc=$?
+	;;
+  *)
+        echo $"Usage: $0 {start|stop|status|restart|reload|force-reload}"
+        exit 2
+esac
+
+exit $rc
