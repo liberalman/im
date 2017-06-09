@@ -1,7 +1,7 @@
 #! /bin/bash
 
 CWD=/media/sf_G_DRIVE/gocode/src/github.com/liberalman/im
-SERVER=("gateway" "access" "notify" "register")
+SERVER=("gateway" "access" "notify" "register" "manager")
 SERVICE=("idgen")
 
 # Source function library.
