@@ -5,7 +5,10 @@ SERVER=("gateway" "access" "notify" "register")
 SERVICE=("idgen")
 
 # Source function library.
-. /etc/init.d/functions
+# in centos
+#. /etc/init.d/functions
+# in ubuntu
+. /lib/lsb/init-functions
 
 # See how we were called.
 case "$1" in
@@ -38,7 +41,8 @@ case "$1" in
         fi
     done
     
-    apply_sysctl
+    # in centos
+    #apply_sysctl
         ;;
   stop)
 	[ "$EUID" != "0" ] && exit 4
