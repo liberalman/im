@@ -1,7 +1,7 @@
 #! /bin/bash
 
 CWD=`pwd`
-SERVER=("gateway" "access" "notify" "register")
+SERVER=("gateway" "access" "notify" "register" "manager")
 SERVICE=("idgen")
 
 # See how we were called.
