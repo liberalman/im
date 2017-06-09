@@ -20,7 +20,7 @@ case "$1" in
         echo $svr
         if [ -x $CWD/server/$svr/$svr ]; then
             pushd $CWD/server/$svr/ >/dev/null 2>&1
-            ./$svr &
+            nohup ./$svr &
             popd >/dev/null 2>&1
         else
             echo "no "$CWD/server/$svr/$svr
@@ -32,7 +32,7 @@ case "$1" in
         echo $svr
         if [ -x $CWD/service/$svr/$svr ]; then
             pushd $CWD/service/$svr/ >/dev/null 2>&1
-            ./$svr &
+            nohup ./$svr &
             popd >/dev/null 2>&1
         else
             echo "no "$CWD/service/$svr/$svr
