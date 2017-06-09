@@ -15,9 +15,9 @@ type Client struct {
 	// testCell *gohbase.HBaseCell
 }
 
-func (c *Client) Scan(ctx context.Context, s *hrpc.Scan) ([]*hrpc.Result, error) {
-	return c.c.Scan(s)
-}
+//func (c *Client) Scan(ctx context.Context, s *hrpc.Scan) ([]*hrpc.Result, error) {
+//	return c.c.Scan(s)
+//}
 
 func (c *Client) Get(ctx context.Context, g *hrpc.Get) (*hrpc.Result, error) {
 	return c.c.Get(g)
