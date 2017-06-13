@@ -140,6 +140,13 @@ ElasticSearch(可选)
 
 * kafka安装 : http://kafka.apache.org/quickstart (默认启动即可)
 
+下载代码，解压后进入kafka目录
+
+```shell
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties &
+nohup bin/kafka-server-start.sh config/server.properties &
+```
+
 安装完成之后创建两个topic:
 
 ```shell
@@ -153,7 +160,31 @@ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 -
 
 * HBase安装 : 
 
-安装完成之后创建:
+下载：http://www-eu.apache.org/dist/hbase/stable/hbase-1.2.6-bin.tar.gz
+
+解压，进入hbase目录，启动
+
+```shell
+bin/start-hbase.sh
+```
+查看启动是否成功
+
+```shell
+bin/hbase shell
+```
+
+出现如下hbase的shell界面就成功了
+
+```shell
+2017-06-13 18:08:20,463 WARN  [main] util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+HBase Shell; enter 'help<RETURN>' for list of supported commands.
+Type "exit<RETURN>" to leave the HBase Shell
+Version 1.2.6, rUnknown, Mon May 29 02:25:32 CDT 2017
+
+hbase(main):001:0> 
+```
+
+安装完成之后，在hbase的shell终端创建:
 
 ```shell
 create 'im', 'user', 'msg'
