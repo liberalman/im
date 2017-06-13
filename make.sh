@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 CWD=`pwd`
 SERVER=("gateway" "access" "notify" "register" "manager" "logic")
